@@ -1,46 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <script src="resources/js/angular.js"></script>
-    <script src="resources/js/angular-route.js"></script>
-
-	<script src="resources/js/module/categoria.module.js"></script>
-	<script src="resources/js/controller/categoria.controller.js"></script>
-    <script src="resources/js/service/categoria.service.js"></script>
-
-	<script src="resources/js/module/produto.module.js"></script>
-    <script src="resources/js/service/produto.service.js"></script>
-    <script src="resources/js/controller/produto.controller.js"></script>
+<div>
+	<div>
+		ID: <input ng-disabled="!updateValue" 
+				   type="text"
+				   ng-model="produto.id" />
+	</div>
+	Descrição: <input type="text" ng-model="produto.descricao" />
+	<br />
+	Valor: <input type="text" ng-model="produto.valor" />
+	<br /> 
+	Validade:<input type="date" ng-model="produto.validade" /> 
+	<br /> 
+	Categoria: <select>
+		<option ng-repeat="c in categorias">{{c.descricao}}</option>
+	</select> 
+	<br /> 
 	
-    <body ng-app="produto">
-    	<div ng-controller="ProdutoCtrl">
-    		<div>ID: <input ng-disabled="!updateValue" type="text" ng-model="produto.id"/></div>
-			
-			Descrição: <input type="text" ng-model="produto.descricao"/>
-			<br/>
-			
-			Valor: <input type="text" ng-model="produto.valor"/>    			
-    		<br/>
-    		
-    		Validade: <input type="date" ng-model="produto.validade"/>
-    		<br/>
-    		
-    		Categoria: <select>
-    			<option ng-repeat="c in categorias">{{c.descricao}}</option>
-   			</select>
-    		<br/>
-    		
-    		Update:<input type="radio" ng-checked="update" ng-click="mudaUpdate()" name="update"/>
-    		Create:<input type="radio" ng-checked="!update" ng-click="mudaUpdate()" name="update"/>
-    		
-    		<br/>
-    		<input type="text" ng-model="id"/>
-    		<button ng-click="find()"> FIND</button>
-	    	<button ng-click="findAll()"> FIND-ALL</button>
-	    	<button ng-click="create()" ng-disabled="!updateValue">CREATE</button>
-	    	<button ng-click="update()" ng-disabled="updateValue">UPDATE</button>
-			<button ng-click="delete()">DELETE</button>
-		
-	    	<p ng-repeat="p in produtos">{{p}}</p>
-    	</div>
-	</body>
-</html>
+	Update:<input type="radio" 
+				  ng-checked="updateValue"
+				  ng-click="mudaUpdate()" 
+				  name="update" /> 
+  	Create:<input type="radio"
+				  ng-checked="!updateValue" 
+				  ng-click="mudaUpdate()" 
+				  name="update" /> 
+  	<br /> 
+  	
+  	<input type="text" ng-model="id" />
+	<button ng-click="find()">FIND</button>
+	<button ng-click="findAll()">FIND-ALL</button>
+	<button ng-click="create()" ng-disabled="!updateValue">CREATE</button>
+	<button ng-click="update()" ng-disabled="updateValue">UPDATE</button>
+	<button ng-click="delete()">DELETE</button>
+	<br />
+	
+	<p ng-repeat="p in produtos">{{p}}</p>
+</div>
