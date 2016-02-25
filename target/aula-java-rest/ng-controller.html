@@ -1,0 +1,36 @@
+
+<!-- Exemplo de aplicação, controller, expressions e $scope -->
+
+<!DOCTYPE html>
+<html>
+    <script src="resources/js/angular.js"></script>
+    <body ng-app="appModule">
+	    <div ng-controller="myCtrl">
+	       <div>
+	       		{{selected}}
+	       		<select ng-model="selected">
+	       			<option ng-repeat="item in obj.lista" 
+	       					value="{{item}}">
+       					{{item.texto}}
+	       			</option>
+	       		</select>
+	       </div>
+	    </div>
+	    
+	    <script>
+			var app = angular.module('appModule', []);
+			app.controller('myCtrl', ['$scope',
+			                          '$http',
+			                          function($scope, myService, $http) {
+				$scope.selected = {};
+				$scope.obj = {
+					lista : [
+						{texto: 123, id: 1},
+		                {texto: 431, id: 2},
+		                {texto: 423, id: 3}
+		            ]
+				};
+			}]);
+	    </script>
+	</body>
+</html>

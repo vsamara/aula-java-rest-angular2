@@ -1,0 +1,17 @@
+model/Categoria.class
+view/View.class
+model/Categoria$1.class
+controller/CategoriaWS.class
+utils/EntityManagerUtils.class
+model/Produto$Builder.class
+service/Service.class
+model/Model.class
+view/CategoriaView.class
+utils/ServletListener.class
+model/Categoria$Builder.class
+dao/DAO.class
+view/ProdutoView.class
+controller/GenericWS.class
+model/Produto.class
+model/Produto$1.class
+controller/ProdutoWS.class

@@ -1,0 +1,18 @@
+ul#menu {
+    padding: 0;
+}
+
+ul#menu li {
+	display: inline;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+ul#menu li:hover {
+    background-color: orange;
+}

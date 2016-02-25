@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+         version="2.5" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>Rest Application</display-name>
+  
+  <servlet>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-class>
+            com.sun.jersey.spi.container.servlet.ServletContainer
+        </servlet-class>
+        <init-param>
+            <!-- Definição do leitor dos web services ficarão alocados no pacote abaixo-->
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+
+            <!-- Nome do pacote no seu projeto -->
+            <param-value>controller</param-value>
+        </init-param>
+
+        <!-- Tempo de load -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <!-- Url que deve ser inserida após o contexto para acessar os web services -->
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+   
+   	<listener>
+   		<listener-class>utils.ServletListener</listener-class>   
+   	</listener>
+    
+</web-app>
